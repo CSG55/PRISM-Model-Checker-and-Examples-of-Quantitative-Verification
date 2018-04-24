@@ -1,0 +1,10 @@
+const int x;
+
+P=? [ F s=7&d=x ]
+
+R{"steps"}>=3 [ F s=7]
+
+filter(printall, P=? [F true], s=7)
+
+filter(printall, P=? [F d=6], s=7)
+
