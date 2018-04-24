@@ -1,0 +1,27 @@
+pta
+
+module Therac25
+p : [0..9] init 0; //Power level
+Mode: [0..2] init 0; //Mode 1: Electron Mode, Mode 2: Xray Mode
+y : clock; //clock instance
+
+//declare invariant
+
+//    invariant
+//        (Mode=1 => y>=5 ) & 
+//        (Mode=2 => y>=3)
+//    endinvariant
+
+[start] (Mode=0) -> 0.5: (Mode'=1)& (y'=3)&(p'=1) + 0.5: (Mode'=2)& (y'=5)&(p'=9) ;
+
+
+//when in electron mode
+[ElectronToXray] (Mode=1) ->  0.99 :(Mode' = 2) & (p'=9)& (y' = 3) 
+					    + 0.01 :(Mode' = 2) & (p'=1)& (y' = 1);
+//when in Xray mode
+[XrayToElectron] (Mode=2) ->  0.99 :(Mode' = 1) & (p'=1)& (y' = 5)
+					    + 0.01 :(Mode' = 1) & (p'=9)& (y' = 1);
+
+endmodule
+
+
