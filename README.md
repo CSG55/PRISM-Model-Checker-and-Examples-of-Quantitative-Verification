@@ -1,4 +1,4 @@
-# PRISM-Model-Checker-and-Examples-of-Quantitative-Verification
+# PRISM Model Checker and Examples of Quantitative Verification
 
 
 To download PRISM on your system: http://www.prismmodelchecker.org/download.php
